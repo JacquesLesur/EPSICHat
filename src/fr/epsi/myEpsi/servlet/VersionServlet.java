@@ -1,4 +1,4 @@
-package fr.epsi.myEpsi.servelet;
+package fr.epsi.myEpsi.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class VersionServelet
  */
 @WebServlet("/VersionServelet")
-public class VersionServelet extends HttpServlet {
+public class VersionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VersionServelet() {
+    public VersionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
