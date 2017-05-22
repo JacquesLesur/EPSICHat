@@ -36,6 +36,7 @@ body{ background:url("img/trigle.png") no-repeat center center fixed; background
 
                 <input type="submit" value="Inscription" class="btn btn-primary"/>
                 <br />
+                <p>${form.resultat}</p>
             </fieldset>
         </form>
         </div>
