@@ -46,19 +46,23 @@ public class InscriptionForm {
 
         User utilisateur = new User(nom,motDePasse,false);
 
-   
+    
+
         try {
             validationMotsDePasse( motDePasse );
         } catch ( Exception e ) {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
-       
+        System.out.println(motDePasse);
+        utilisateur.setPassword( motDePasse );
+
         try {
             validationNom( nom );
         } catch ( Exception e ) {
             setErreur( CHAMP_NOM, e.getMessage() );
         }
         System.out.println(nom);
+        utilisateur.setId( nom );
 
         if ( erreurs.isEmpty() ) {
             resultat = "Succès de l'inscription.";
@@ -130,5 +134,3 @@ public class InscriptionForm {
         }
     }
 }
-
-
