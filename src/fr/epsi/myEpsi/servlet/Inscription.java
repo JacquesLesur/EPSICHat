@@ -52,10 +52,15 @@ public class Inscription extends HttpServlet {
 
 	        request.setAttribute( ATT_FORM, form );
 	        request.setAttribute( ATT_USER, utilisateur );
-	        IUserDao userDAO = new UserDAO();
-	        userDAO.addUser(utilisateur);
-
-	        response.sendRedirect("Connection");
+	        if ( form.getErreurs().isEmpty() ) {
+	        	IUserDao userDAO = new UserDAO();
+		        userDAO.addUser(utilisateur);
+		        response.sendRedirect("Connection");
+	        }
+	        else {
+	      	  this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	        }
+	        
 	    
 	}
 }
