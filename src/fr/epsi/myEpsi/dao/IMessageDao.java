@@ -14,7 +14,7 @@ import fr.epsi.myEpsi.beans.User;
 
 public interface IMessageDao {
 
-	List<Message> getListOfMessages();
+	List<Message> getListOfMessages(User user);
 	Message getMessage(Long id);
 	void addMessage(Message message);
 	void updateMessageStatus(Message message, int status);

@@ -8,6 +8,11 @@ public class User {
 	private String password;
 	private Boolean administrator;
 	
+	public  User (String id, String password, Boolean administrator){
+		this.id = id;
+		this.password = password;
+		this.administrator = administrator;
+	}
 	public String getId() {
 		return id;
 	}
