@@ -19,6 +19,7 @@ public interface IMessageDao {
 	void addMessage(Message message);
 	void updateMessageStatus(Message message, int status);
 	void deleteMessage(Message message);
+	List<Message> getListOfMessagesPublic();
 }
 	
 	

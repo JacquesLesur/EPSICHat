@@ -67,6 +67,57 @@ import fr.epsi.myEpsi.beans.User;
 				}
 			return listMessage;
 		}
+		
+		@Override
+		public List<Message> getListOfMessagesPublic() {
+			List<Message> listMessage = new ArrayList();
+			
+			 ResultSet resultats = null;
+				String requete = "SELECT * FROM Messages m "
+								+ "	where m.STATUS = 0" ;
+				connexion connect = new  connexion();
+				Connection con = connect.getConnection();
+				
+				//on récupère les utilisateurs de la base
+				try {
+					
+				    Statement stmt = con.createStatement();
+				    resultats = stmt.executeQuery(requete);
+
+				  
+				   
+				    
+				    //on créé les objets message et on les ajout à la liste
+				    while (resultats.next()) {
+				       Message message = new Message(resultats.getLong(1),
+				    		   resultats.getString(2),
+				    		   resultats.getString(3),
+				    		   new User("ADMIN","password",true),// resultats.getObject(4),récupérer l'user en fonction de l'id quand l'userdao seras fini
+				    		   resultats.getTimestamp(5),
+				    		   resultats.getTimestamp(6),
+				    		   resultats.getInt(7));
+				       
+				       listMessage.add(message);
+				        
+				     }
+
+				    resultats.close();
+
+				} catch (SQLException e) {
+				//traitement de l'exception
+					e.printStackTrace();
+				}
+			
+				
+				//on ferme la connection
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			return listMessage;
+		}
 
 		@Override
 		public Message getMessage(Long id) {
@@ -111,6 +162,8 @@ import fr.epsi.myEpsi.beans.User;
 	
 			return message;
 		}
+		
+		
 
 		@Override
 		public void addMessage(Message message) {

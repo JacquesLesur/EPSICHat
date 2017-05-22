@@ -19,7 +19,7 @@ import fr.epsi.myEpsi.forms.InscriptionForm;
 public class Inscription extends HttpServlet {
 	public static final String ATT_USER = "utilisateur";
     public static final String ATT_FORM = "form";
-    public static final String VUE = "/fr.epsi.myEpsi/inscription.jsp";
+    public static final String VUE = "/Inscription.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
