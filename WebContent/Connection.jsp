@@ -24,13 +24,13 @@ body{ background:url("img/trigle.png") no-repeat center center fixed; background
                 
                 <div class="form-group">
                 <label for="nom">Nom d'utilisateur</label>
-                <input type="text" id="nom" name="nom" value="${param.nom}" class="form-control"/>
+                <input type="text" id="nom" name="nom" value="" class="form-control"/>
                 </div>
                 <br />
 				
 				<div class="form-group">
                 <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="password" name="${param.password}" value="" size="20" maxlength="20" class="form-control"/>
+                <input type="password" id="password" name="password" value="" size="20" maxlength="20" class="form-control"/>
 				</div>
                 <br />
 

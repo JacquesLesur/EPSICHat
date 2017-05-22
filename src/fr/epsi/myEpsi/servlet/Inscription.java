@@ -55,7 +55,7 @@ public class Inscription extends HttpServlet {
 	        IUserDao userDAO = new UserDAO();
 	        userDAO.addUser(utilisateur);
 
-	        this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	        response.sendRedirect("Connection");
 	    
 	}
 }
