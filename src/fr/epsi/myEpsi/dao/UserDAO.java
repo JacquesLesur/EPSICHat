@@ -7,17 +7,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.Logger;
+
 import fr.epsi.myEpsi.beans.Message;
 import fr.epsi.myEpsi.beans.User;
 
 public class UserDAO implements IUserDao {
+	
+	final static Logger log = org.apache.logging.log4j.LogManager.getRootLogger();
+
 
 	@Override
 	public List<User> getListOfUsers() {
 		List<User> listUser = new ArrayList();
 	
 		 ResultSet resultats = null;
+		 
 			String requete = "SELECT * FROM USERS";
+			log.debug(requete);
 			connexion connect = new  connexion();
 			Connection con = connect.getConnection();
 			
@@ -63,6 +70,7 @@ public class UserDAO implements IUserDao {
 		User user = null;
 		String requete = "SELECT * FROM USERS u "
 				+ "	where u.ID = '" +id +"'" ;
+		log.debug(requete);
 			connexion connect = new  connexion();
 			Connection con = connect.getConnection();
 			 ResultSet resultats = null;
@@ -101,6 +109,7 @@ public class UserDAO implements IUserDao {
 	public void addUser(User user) {
 		 ResultSet resultats = null;
 			String requete = "INSERT INTO USERS VALUES('"+user.getId() +"','"+user.getPassword()+"'," +user.getAdministrator()+")";
+			log.debug(requete);
 			connexion connect = new  connexion();
 			Connection con = connect.getConnection();
 			
@@ -129,6 +138,7 @@ public class UserDAO implements IUserDao {
 	public void updateUser(User user) {
 		ResultSet resultats = null;
 		String requete = "	UPDATE USERS SET PASSWORD  = '"+user.getPassword()+"',ISADMINISTRATOR = "+user.getAdministrator()+" WHERE id = '"+user.getId()+"'";
+		log.debug(requete);
 		connexion connect = new  connexion();
 		Connection con = connect.getConnection();
 		
@@ -156,6 +166,7 @@ public class UserDAO implements IUserDao {
 	public void deleteUser(User user) {
 		ResultSet resultats = null;
 		String requete = "	DELETE FROM USERS WHERE ID = '"+user.getId()+"'";
+		log.debug(requete);
 		connexion connect = new  connexion();
 		Connection con = connect.getConnection();
 		

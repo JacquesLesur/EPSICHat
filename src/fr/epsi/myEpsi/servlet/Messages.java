@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.Logger;
+
 import fr.epsi.myEpsi.beans.Message;
 import fr.epsi.myEpsi.beans.User;
 import fr.epsi.myEpsi.dao.IMessageDao;
@@ -21,6 +23,7 @@ import fr.epsi.myEpsi.forms.MessagesForm;
 @WebServlet("/Messages")
 public class Messages extends HttpServlet {
 	 public static final String VUE = "/Messages.jsp";
+	 final static Logger log = org.apache.logging.log4j.LogManager.getRootLogger();
 	 /**
      * @see HttpServlet#HttpServlet()
      */
@@ -34,6 +37,7 @@ public class Messages extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		log.info("Load Inscription servlet");
 		IMessageDao messageDAO = new MessageDao();
 		List<Message> listMessage = messageDAO.getListOfMessagesPublic();
 		request.setAttribute( "listMessages", listMessage );

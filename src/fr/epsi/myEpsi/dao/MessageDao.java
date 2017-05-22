@@ -9,6 +9,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.Logger;
+
 import fr.epsi.myEpsi.beans.Message;
 import fr.epsi.myEpsi.beans.Status;
 import fr.epsi.myEpsi.beans.User;
@@ -17,6 +19,7 @@ import fr.epsi.myEpsi.beans.User;
 
 	public class MessageDao implements IMessageDao{
 
+		final static Logger log = org.apache.logging.log4j.LogManager.getRootLogger();
 		@Override
 		public List<Message> getListOfMessages(User user) {
 			List<Message> listMessage = new ArrayList();
@@ -126,6 +129,7 @@ import fr.epsi.myEpsi.beans.User;
 			Message message = null;
 			String requete = "SELECT * FROM Messages m "
 					+ "	where m.ID = " +id ;
+			log.debug(requete);
 				connexion connect = new  connexion();
 				Connection con = connect.getConnection();
 				 ResultSet resultats = null;
@@ -171,7 +175,7 @@ import fr.epsi.myEpsi.beans.User;
 			 ResultSet resultats = null;
 				String requete = "INSERT INTO MESSAGES VALUES("+message.getId() +",'"+message.getTitle()+"','" +message.getContent()+"','"+message.getAuthor().getId()+"','" + new Timestamp(System.currentTimeMillis())+"','" +
 								new Timestamp(System.currentTimeMillis()) +"'," +  message.getStatus().ordinal() +")";
-				System.out.println( requete);
+				log.debug(requete);
 				connexion connect = new  connexion();
 				Connection con = connect.getConnection();
 				
@@ -201,6 +205,7 @@ import fr.epsi.myEpsi.beans.User;
 		public void updateMessageStatus(Message message, int status) {
 			ResultSet resultats = null;
 			String requete = "	UPDATE MESSAGES SET STATUS  = "+status+",UPDATE_DATE = '"+new Timestamp(System.currentTimeMillis()) +"' WHERE id = '"+message.getId()+"'";
+			log.debug(requete);
 			connexion connect = new  connexion();
 			Connection con = connect.getConnection();
 			
@@ -229,6 +234,7 @@ import fr.epsi.myEpsi.beans.User;
 		public void deleteMessage(Message message) {
 			ResultSet resultats = null;
 			String requete = "	DELETE FROM MESSAGES WHERE ID = '"+message.getId()+"'";
+			log.debug(requete);
 			connexion connect = new  connexion();
 			Connection con = connect.getConnection();
 			

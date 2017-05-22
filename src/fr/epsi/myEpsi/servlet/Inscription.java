@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.Logger;
+
 import fr.epsi.myEpsi.beans.User;
 import fr.epsi.myEpsi.dao.IUserDao;
 import fr.epsi.myEpsi.dao.UserDAO;
@@ -17,6 +19,8 @@ import fr.epsi.myEpsi.forms.InscriptionForm;
  */
 @WebServlet("/Inscription")
 public class Inscription extends HttpServlet {
+	
+	final static Logger log = org.apache.logging.log4j.LogManager.getRootLogger();
 	public static final String ATT_USER = "utilisateur";
     public static final String ATT_FORM = "form";
     public static final String VUE = "/Inscription.jsp";
@@ -34,6 +38,7 @@ public class Inscription extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		log.info("Load Inscription servlet");
 		  this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 
@@ -59,6 +64,7 @@ public class Inscription extends HttpServlet {
 	        }
 	        else {
 	      	  this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	      	log.info("Load Inscription servlet");
 	        }
 	        
 	    

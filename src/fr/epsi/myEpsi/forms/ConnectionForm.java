@@ -7,6 +7,8 @@ import java.util.Map;
 import java.io.IOException;	
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.Logger;
+
 import fr.epsi.myEpsi.beans.User;
 import fr.epsi.myEpsi.dao.IUserDao;
 import fr.epsi.myEpsi.dao.UserDAO;
@@ -19,6 +21,8 @@ public class ConnectionForm {
 	
     private static final String CHAMP_PASS = "password";
     private static final String CHAMP_NOM  = "nom";
+    
+    final static Logger log = org.apache.logging.log4j.LogManager.getRootLogger();
     
     
        
@@ -64,11 +68,15 @@ public class ConnectionForm {
         if ( user != null  ) {
 	          if (!motDePasse.equals(passwordDAO))
 	          {
-	        	 throw new Exception( " Mot de passe incorrect." );  
+	        	  log.error(nom + " : Mot de passe incorrect. ");
+	        	 throw new Exception( " Mot de passe incorrect." );
+	        	 
 	          }
         } 
         else {
+        	log.error(nom + " : Login incorrect. ");
         	throw new Exception( " Nom incorrect." );
+        	
         }
     }
 
