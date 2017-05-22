@@ -10,8 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.epsi.myEpsi.beans.Message;
+import fr.epsi.myEpsi.beans.User;
 import fr.epsi.myEpsi.dao.IMessageDao;
+import fr.epsi.myEpsi.dao.IUserDao;
 import fr.epsi.myEpsi.dao.MessageDao;
+import fr.epsi.myEpsi.dao.UserDAO;
+import fr.epsi.myEpsi.forms.InscriptionForm;
+import fr.epsi.myEpsi.forms.MessagesForm;
 
 @WebServlet("/Messages")
 public class Messages extends HttpServlet {
@@ -34,6 +39,19 @@ public class Messages extends HttpServlet {
 		request.setAttribute( "listMessages", listMessage );
 
 		 this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		 MessagesForm formMessage = new MessagesForm();
+
+	        /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
+
+	        formMessage.nouveauMessage( request );
+
+
+
+	        response.sendRedirect("Messages");
+	    
 	}
 
 }
