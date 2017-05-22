@@ -10,6 +10,8 @@
 	
 	<%
 	int version = 1;
-	out.println("Version : " + version);%>
+	out.println("Version : " + version);
+	%>
+	
 </body>
 </html>
