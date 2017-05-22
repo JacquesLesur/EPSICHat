@@ -64,7 +64,7 @@ public class Inscription extends HttpServlet {
 	        }
 	        else {
 	      	  this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-	      	log.info("Load Inscription servlet");
+	      	 
 	        }
 	        
 	    

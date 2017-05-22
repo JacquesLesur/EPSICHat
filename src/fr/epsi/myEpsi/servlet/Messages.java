@@ -52,9 +52,8 @@ public class Messages extends HttpServlet {
 
 	        formMessage.nouveauMessage( request );
 
-
-
 	        response.sendRedirect("Messages");
+	        
 	    
 	}
 
