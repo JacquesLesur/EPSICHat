@@ -96,7 +96,7 @@ public class InscriptionForm {
         if ( nom != null && nom.length() < 3 ) {
             throw new Exception( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
         }
-        if ( userDAO.getUserById(nom) == null ) {
+        if ( userDAO.getUserById(nom) != null ) {
             throw new Exception( "Ce nom d'utilisateur existe déjà" );
         }
 

@@ -14,6 +14,24 @@
 </head>
 
 <body>
+
+  <form method="post" action="Messages">
+            
+                
+                <p>Ecrivez votre message</p>
+                
+                <label for="titre">Titre</label>
+                <input type="text" id="titre" name="titre" value="" size="20" maxlength="20" />
+                <br />
+
+                <label for="message">Message <span class="requis">*</span></label>
+                <input type="text" id="message" name="message" value="" size="20" maxlength="255" />
+                <br />
+
+                <input type="submit" value="Envoyer" class="sansLabel" />
+                <br />
+            
+        </form>
 		<% 
 		
 		

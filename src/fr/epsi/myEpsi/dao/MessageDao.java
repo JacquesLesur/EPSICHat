@@ -74,7 +74,8 @@ import fr.epsi.myEpsi.beans.User;
 			
 			 ResultSet resultats = null;
 				String requete = "SELECT * FROM Messages m "
-								+ "	where m.STATUS = 0" ;
+								+ "	where m.STATUS = 0"
+								+ "order by CREATION_DATE DESC" ;
 				connexion connect = new  connexion();
 				Connection con = connect.getConnection();
 				
