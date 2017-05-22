@@ -53,8 +53,7 @@ public class Connection extends HttpServlet {
          
          HttpSession session = request.getSession();
          session.setAttribute( ATT_SESSION_USER, utilisateur );
-         
-      
+         request.setAttribute( ATT_FORM, form );
          
          if ( form.getErreurs().isEmpty() ) {
              session.setAttribute( ATT_SESSION_USER, utilisateur );

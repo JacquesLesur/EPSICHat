@@ -50,9 +50,9 @@ public class ConnectionForm {
         try {
         	validationConnection( nom, motDePasse );
         } catch ( Exception e ) {
-            setErreur( "connection ", e.getMessage() );
+            setErreur( "connection", e.getMessage() );
         }
-        System.out.println(getErreurs());
+   
        return user;
        
     }
@@ -62,7 +62,7 @@ public class ConnectionForm {
     	user = userDAO.getUserById(nom);
     	String passwordDAO = user.getPassword();
         if ( user != null  ) {
-            System.out.println(user.getPassword() + " " + motDePasse);
+
 	          if (!motDePasse.equals(passwordDAO))
 	          {
 	        	 throw new Exception( " Mot de passe incorrect." );  
@@ -73,11 +73,8 @@ public class ConnectionForm {
         }
     }
 
-
     /*
-
      * Ajoute un message correspondant au champ spécifié à la map des erreurs.
-
      */
 
     private void setErreur( String champ, String message ) {
@@ -85,14 +82,11 @@ public class ConnectionForm {
         erreurs.put( champ, message );
     }
     
-
     /*
-
      * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
      * sinon.
-
      */
-
+    
     private static String getValeurChamp( HttpServletRequest request, String nomChamp ) {
 
         String valeur = request.getParameter( nomChamp );
