@@ -38,7 +38,7 @@
 			List<Message> listMessage  = (List<Message>) request.getAttribute("listMessages");
 			for (Message message : listMessage)
 			{
-            out.println( message.getTitle()+"   "+message.getAuthor().getId()+"<br>"+message.getContent()+"<br><br>" );
+            out.println( message.getAuthor().getId()+" :"+message.getTitle()+"   "+"<br>"+message.getContent()+"<br><br>" );
 			}
             %>
 		
