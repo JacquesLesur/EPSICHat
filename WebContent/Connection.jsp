@@ -36,7 +36,7 @@ body{ background:url("img/trigle.png") no-repeat center center fixed; background
                 <div class="alert alert-warning">
 				<span>${form.erreurs['connection']}</span>
 				</div>
-                <input type="submit" value="Connection" class="btn btn-primary" />
+                <input type="submit" value="Connection" class="btn btn-primary" /> <a href="Inscription">Inscrivez-vous</a>
                 <br />
             </fieldset>
         </form>
