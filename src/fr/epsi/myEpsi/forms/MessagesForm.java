@@ -1,6 +1,7 @@
 package fr.epsi.myEpsi.forms;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import fr.epsi.myEpsi.beans.Message;
 import fr.epsi.myEpsi.beans.User;
@@ -18,13 +19,21 @@ public class MessagesForm {
 	      //todo vérifier si message pas null renvoyer un bool
 	        String titre = getValeurChamp( request, "titre" );
 	        String message = getValeurChamp( request, "message" );
-	        
+	        String status = getValeurChamp( request, "STATUS" );
+	        HttpSession session = request.getSession();
+			User utilisateur =  (User) session.getAttribute("sessionUtilisateur"); //récupère l'utilisateur de la session
+			
 	        IMessageDao messageDAO = new MessageDao();
 	        IUserDao userDAO = new UserDAO();
+	        int StatusNbr=0;
 	        
-	        String  id = "ADMIN";
-			User user2 = userDAO.getUserById(id);
-	        Message newMessage = new Message(null, titre, message, user2, null, null, 0);
+	        if(status.equals("prive"))
+	        {
+	        	StatusNbr = 1;
+	        }
+	        
+	        Message newMessage = new Message(null, titre, message, utilisateur, null, null, StatusNbr);
+	        System.out.println(status + StatusNbr);
 			messageDAO.addMessage(newMessage);
 
 	    
@@ -50,4 +59,5 @@ public class MessagesForm {
             return valeur.trim();
         }
     }
+   
 }
