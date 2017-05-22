@@ -24,23 +24,41 @@
                 <input type="text" id="titre" name="titre" value="" size="20" maxlength="20" />
                 <br />
 
-                <label for="message">Message <span class="requis">*</span></label>
+                <label for="message">Message <span class="requis"></span></label>
                 <input type="text" id="message" name="message" value="" size="20" maxlength="255" />
                 <br />
-
+				<INPUT type= "radio" name="STATUS" value="public" checked="checked"> Public
+				<INPUT type= "radio" name="STATUS" value="prive"> Privé
+				<br />
                 <input type="submit" value="Envoyer" class="sansLabel" />
                 <br />
             
         </form>
+       ---------------- Messages Publiques !!!<br>
 		<% 
 		
 		
-			List<Message> listMessage  = (List<Message>) request.getAttribute("listMessages");
-			for (Message message : listMessage)
+			List<Message> listMessagesPub  = (List<Message>) request.getAttribute("listMessagesPub");
+
+
+				for (Message message : listMessagesPub)
+				{
+	            out.println( message.getAuthor().getId()+" :"+message.getTitle()+"   "+"<br>"+message.getContent()+"<br><br>" );
+				}
+
+            %>
+		 ---------------- Messages Privé !!! <br>
+		 
+		 	<% 
+		
+		
+			List<Message> listMessagePriv  = (List<Message>) request.getAttribute("listMessagesPriv");
+
+			for (Message message : listMessagePriv)
 			{
             out.println( message.getAuthor().getId()+" :"+message.getTitle()+"   "+"<br>"+message.getContent()+"<br><br>" );
 			}
+		 
             %>
-		
 </body>
 </html>
