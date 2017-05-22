@@ -22,6 +22,7 @@
 
                 <input type="submit" value="Inscription" class="sansLabel" />
                 <br />
+                <p>${form.resultat}</p>
             </fieldset>
         </form>
     </body>
