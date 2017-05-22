@@ -4,25 +4,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+body{ background:url("img/trigle.png") no-repeat center center fixed; background-size:cover;}
+</style>
 <title>Inscription</title>
 </head>
 <body>
+<div class="container" style="padding-top: 30px">
+	<div class="col-sm-4">
+		<div class="jumbotron" style="background-color:#F0F4F4 !important;">
         <form method="post" action="Inscription">
             <fieldset>
                 <legend>Inscription</legend>
-                <p>Vous pouvez vous inscrire via ce formulaire.</p>
                 
+                <div class="form-group">
                 <label for="nom">Nom d'utilisateur</label>
-                <input type="text" id="nom" name="nom" value="${param.nom}" size="20" maxlength="20" />
+                <input type="text" id="nom" name="nom" value="${param.nom}" class="form-control"/>
+                </div>
                 <br />
 
+				<div class="form-group">
                 <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="password" name="password" value="" size="20" maxlength="20" />
+                <input type="password" id="password" name="password" value="" class="form-control"/>
+                </div>
                 <br />
 
-                <input type="submit" value="Inscription" class="sansLabel" />
+                <input type="submit" value="Inscription" class="btn btn-primary"/>
                 <br />
             </fieldset>
         </form>
+        </div>
+        </div>
+        </div>
     </body>
 </html>

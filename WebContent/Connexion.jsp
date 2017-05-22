@@ -21,7 +21,6 @@ body{ background:url("img/trigle.png") no-repeat center center fixed; background
         <form method="post" action="Connection">
             <fieldset>
                 <legend>Connection</legend>
-                <p>Vous pouvez vous connecter via ce formulaire.</p>
                 
                 <div class="form-group">
                 <label for="nom">Nom d'utilisateur</label>
