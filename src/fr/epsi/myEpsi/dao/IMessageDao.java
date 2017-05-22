@@ -20,6 +20,7 @@ public interface IMessageDao {
 	void updateMessageStatus(Message message, int status);
 	void deleteMessage(Message message);
 	List<Message> getListOfMessagesPublic();
+	List<Message> getListMessagePerso(User user);
 }
 	
 	
