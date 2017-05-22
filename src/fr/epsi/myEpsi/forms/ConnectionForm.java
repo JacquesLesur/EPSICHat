@@ -62,7 +62,6 @@ public class ConnectionForm {
     	user = userDAO.getUserById(nom);
     	String passwordDAO = user.getPassword();
         if ( user != null  ) {
-
 	          if (!motDePasse.equals(passwordDAO))
 	          {
 	        	 throw new Exception( " Mot de passe incorrect." );  

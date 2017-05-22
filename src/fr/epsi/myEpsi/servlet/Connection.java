@@ -60,7 +60,7 @@ public class Connection extends HttpServlet {
              response.sendRedirect("Messages");
          } else {
              session.setAttribute( ATT_SESSION_USER, null );
-             doGet(request, response);
+             this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
          }
 
       /* Stockage du formulaire et du bean dans l'objet request */
