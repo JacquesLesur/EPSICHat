@@ -8,6 +8,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 import fr.epsi.myEpsi.beans.User;
+import fr.epsi.myEpsi.dao.IUserDao;
+import fr.epsi.myEpsi.dao.UserDAO;
 
 /**
  * Servlet implementation class InscriptionForm
@@ -42,7 +44,7 @@ public class InscriptionForm {
         String motDePasse = getValeurChamp( request, CHAMP_PASS );
         String nom = getValeurChamp( request, CHAMP_NOM );
 
-        User utilisateur = new User();
+        User utilisateur = new User(nom,motDePasse,false);
 
     
 
@@ -90,9 +92,12 @@ public class InscriptionForm {
 
 
     private void validationNom( String nom ) throws Exception {
-
+    	IUserDao userDAO = new UserDAO();
         if ( nom != null && nom.length() < 3 ) {
             throw new Exception( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
+        }
+        if ( userDAO.getUserById(nom) == null ) {
+            throw new Exception( "Ce nom d'utilisateur existe déjà" );
         }
 
     }
