@@ -10,31 +10,48 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+body{ background:url("img/trigle.jpg") no-repeat center center fixed; background-size:cover;}
+</style>
+<title>Message</title>
 </head>
 
 <body>
-
-  <form method="post" action="Messages">
+<div class="container text-center">
+<div class="row">
+				
+    			<div class="col-sm-3 well">
+  				<form method="post" action="Messages">
             
-                
+                <div class="form-group">
                 <p>Ecrivez votre message</p>
                 
                 <label for="titre">Titre</label>
-                <input type="text" id="titre" name="titre" value="" size="20" maxlength="20" />
+                <input type="text" id="titre" name="titre" value="" class="form-control imput-sm" />
                 <br />
 
                 <label for="message">Message <span class="requis"></span></label>
-                <input type="text" id="message" name="message" value="" size="20" maxlength="255" />
+                <!--<input type="text" id="message" name="message" value="" class="form-control imput-sm" />-->
+		        <textarea class="form-control" rows="5" id="message" name="message"></textarea>
                 <br />
 				<INPUT type= "radio" name="STATUS" value="public" checked="checked"> Public
 				<INPUT type= "radio" name="STATUS" value="prive"> Privé
 				<br />
-                <input type="submit" value="Envoyer" class="sansLabel" />
+                <input type="submit" value="Envoyer" class="btn btn-primary" />
                 <br />
+                </div>
             
         </form>
-       ---------------- Messages Publiques !!!<br>
+        </div>
+        
+        <div class="col-sm-3">
+	    <div class="well">
+       <H5>Messages Publiques</H5><br>
 		<% 
 		
 		
@@ -43,11 +60,17 @@
 
 				for (Message message : listMessagesPub)
 				{
-	            out.println( message.getAuthor().getId()+" :"+message.getTitle()+"   "+"<br>"+message.getContent()+"<br><br>" );
+	            out.println( message.getAuthor().getId()+" :"+message.getTitle()+"   "+"<br>"+message.getContent()+"<br><hr>" );
 				}
 
             %>
-		 ---------------- Messages Privé !!! <br>
+            
+         </div>
+         </div>
+         
+         <div class="col-sm-3">
+	     <div class="well">
+		 <h5>Messages Privé</h5><br>
 		 
 		 	<% 
 		
@@ -56,9 +79,13 @@
 
 			for (Message message : listMessagePriv)
 			{
-            out.println( message.getAuthor().getId()+" :"+message.getTitle()+"   "+"<br>"+message.getContent()+"<br><br>" );
+            out.println( message.getAuthor().getId()+" :"+message.getTitle()+"   "+"<br>"+message.getContent()+"<br><hr>" );
 			}
 		 
             %>
+            </div>
+            </div>
+</div>
+</div>
 </body>
 </html>
